@@ -1,0 +1,194 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body umum */
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #eaf5ff;
+    color: #111;
+    overflow-x: hidden;
+  }
+  
+  /* ===== NAVBAR ===== */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgb(217, 240, 255);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  .logo {
+    font-weight: 700;
+    font-size: 28px;
+    color: #000;
+  }
+  
+  .navbar nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Aktif atau hover: biru dongker dengan teks putih */
+  .navbar nav a.active,
+  .navbar nav a:hover {
+    background-color: #081c38;
+    color: white;
+  }
+  
+  /* Tombol Get Started */
+  .btn {
+    background: rgb(217, 240, 255);
+    color: #0a1a36;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    border: 2px solid #0a1a36;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;       /* 👈 Hapus underline */
+    display: inline-block;       /* 👈 Supaya a behave like button */
+  }
+  
+  
+  .btn:hover {
+    background: #0a1a36;
+    color: white;
+  }
+  
+  /* ===== MAIN CONTENT ===== */
+  .main-content {
+    position: relative;
+    padding: 50px 60px;
+    min-height: 100vh;
+  }
+  
+  /* Judul Fitur */
+  .title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+  
+  /* Grid fitur */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  /* Khusus baris ke-2 */
+  .features > div:nth-child(4),
+  .features > div:nth-child(5) {
+    grid-column: span 1;
+    justify-self: center;
+  }
+  
+  /* ===== KARTU FITUR ===== */
+  .feature-card {
+    background-color: #cce5ff;
+    border: 2px solid #2196f3;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-weight: 600;
+    text-align: center;
+    min-height: 140px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+  }
+  
+  .feature-card p {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+  }
+  
+  /* Kartu aktif (tengah) */
+  .feature-card.active {
+    border: 2.0px solid #2196f3;
+    
+  }
+  
+  /* ===== DEKORASI ===== */
+  .star {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23cce5ff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .587l3.668 7.568 8.332 1.151-6.063 5.74L19.335 24 12 20.013 4.665 24l1.398-8.954L0 9.306l8.332-1.151z"/></svg>');
+    background-size: cover;
+    opacity: 0.3;
+    top: 100px;
+  }
+  
+  .star.left {
+    left: 40px;
+  }
+  
+  .star.right {
+    right: 40px;
+  }
+  
+  .circle-decor {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 200px;
+    background: rgba(173, 216, 230, 0.3);
+    border-top-left-radius: 100%;
+  }
+  
+  /* ===== ANIMASI ===== */
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* ===== RESPONSIF ===== */
+  @media screen and (max-width: 900px) {
+    .features {
+      grid-template-columns: 1fr;
+    }
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .btn {
+      margin-top: 10px;
+    }
+  }
+  
