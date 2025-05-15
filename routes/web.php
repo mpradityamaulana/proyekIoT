@@ -18,6 +18,34 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
+Route::get('/pages/home', function(){
+    return view('pages.home');
+});
+
+Route::get('/pages/about', function(){
+    return view('pages.about');
+});
+
+Route::get('/pages/login', function(){
+    return view('pages.login');
+});
+
+Route::get('/pages/register', function(){
+    return view('pages.register');
+});
+
+Route::get('/pages/feature', function(){
+    return view('pages.feature');
+});
+
+Route::get('/pages/dashboard', function(){
+    return view('pages.dashboard');
+});
+
+Route::get('/pages/datahistory', function(){
+    return view('pages.datahistory');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
