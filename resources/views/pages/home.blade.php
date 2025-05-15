@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Monitoring System</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="home.css"/>
+  <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
 </head>
 <body>
   <header class="navbar">
@@ -42,7 +42,7 @@
 
       </div>
       <div class="image-area">
-        <img src="image dashboard1.jpg" alt="Air Bearing" />
+        <img src="{{ Vite::asset('resources/img/imageHome1.jpg') }}" alt="Air Bearing" />
       </div>
     </section>
     <div class="circle-decor"></div>
