@@ -12,10 +12,10 @@
     <h1>Monitoring System</h1>
     <nav>
       <a href="#" class="active">Home</a>
-      <a href="fitur.html">Fitur</a>
-      <a href="about.html">Tentang Kami</a> 
+      <a href="{{ route('pages.feature') }}">Fitur</a>
+      <a href="{{ route('pages.about') }}">Tentang Kami</a> 
     </nav>
-    <a href="registerairbearing.html" class="start-btn">GET STARTED</a>
+    <a href="{{ route('pages.register') }}" class="start-btn">GET STARTED</a>
 
 
   </header>
