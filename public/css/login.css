@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #e6f3ff, #b3d9ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.2s ease;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #003b7a;
+    animation: slideDown 0.8s ease;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
+    animation: fadeIn 1.4s ease;
+  }
+  
+  .login-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+  }
+  
+  .login-form input:focus {
+    border-color: #1c6aa7;
+    outline: none;
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  
+  .forgot-password a {
+    font-size: 13px;
+    color: #1c6aa7;
+    text-decoration: none;
+  }
+  
+  .login-btn {
+    background-color: #1c6aa7;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+  
+  .login-btn:hover {
+    background-color: #15527e;
+    transform: scale(1.05);
+  }
+  
+  .create-account {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .create-account a {
+    color: #1c6aa7;
+    text-decoration: none;
+  }
+  
+  .divider {
+    margin: 20px 0;
+    font-size: 13px;
+    color: #777;
+    position: relative;
+  }
+  
+  .divider span::before,
+  .divider span::after {
+    content: \"\";
+    display: inline-block;
+    width: 30%;
+    height: 1px;
+    background-color: #ccc;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+  
+  .social-login {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .social-btn {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .social-btn img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .social-btn:hover {
+    transform: scale(1.15);
+    border-color: #1c6aa7;
+  }
+  
+  /* Animasi */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  

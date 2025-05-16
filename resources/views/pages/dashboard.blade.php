@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Monitoring Dashboard</title>
-  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <div class="status">🟢 System Active</div>
     <nav>
       <a href="#" class="active">🏠 Dashboard</a>
-      <a href="riwayatdata.html">📊 Riwayat Data</a>
+      <a href="{{ route('pages.datahistory') }}">📊 Riwayat Data</a>
       <a href="#">📁 belum tau</a>
       <a href="#">📈 belum tau</a>
     </nav>
@@ -50,6 +50,6 @@
     </div>
   </div>
 
-  <script src="dashboard.js"></script>
+  <script src="{{ asset('js/dashboardNew.js') }}"></script>
 </body>
 </html>

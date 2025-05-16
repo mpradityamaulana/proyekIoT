@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Riwayat Data</title>
-  <link rel="stylesheet" href="riwayatdata.css" />
+  <link rel="stylesheet" href="{{ asset('css/datahistory.css') }}" />
 </head>
 <body>
   <div class="sidebar">
     <div class="logo">System Monitoring</div>
     <div class="status">🟢 System Active</div>
     <nav>
-      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="{{ route('pages.dashboard') }}">🏠 Dashboard</a>
       <a href="#" class="active">⏱️ Riwayat Data</a>
       <a href="#">📁 belum tau</a>
       <a href="#">📈 belum tau</a>
@@ -71,6 +71,6 @@
     </div>
   </div>
 
-  <script src="riwayatdata.js"></script>
+  <script src="{{ asset('js/riwayatdata.js') }}"></script>
 </body>
 </html>

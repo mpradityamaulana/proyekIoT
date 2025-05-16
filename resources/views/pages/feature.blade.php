@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Monitoring System</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="fitur.css"/>
+  <link rel="stylesheet" href="{{ asset('css/feature.css') }}"/>
 </head>
 <body>
   <header class="navbar">
     <h1 class="logo">Monitoring System</h1>
     <nav>
-      <a href="home.html">Home</a>
+      <a href="{{ route('pages.home') }}">Home</a>
       <a href="#" class="active">Fitur</a>
-      <a href="about.html">Tentang Kami</a>
+      <a href="{{ route('pages.about') }}">Tentang Kami</a>
     </nav>
-    <a href="registerairbearing.html" class="btn">Get Started</a>
+    <a href="{{ route('pages.register') }}" class="btn">Get Started</a>
   </header>
 
   <main class="main-content">
@@ -42,7 +42,7 @@
       </div>
     </div>
   </main>
-  <script src="fitur.js"></script>
+  <script src="{{ asset('js/feature.js') }}"></script>
 
   <div class="circle-decor"></div>
 </body>

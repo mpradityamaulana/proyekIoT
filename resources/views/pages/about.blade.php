@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tentang Kami</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="{{ asset('css/about.css') }}" />
 </head>
 <body>
   <header class="navbar">
     <h1 class="logo">Monitoring System</h1>
     <nav>
-      <a href="home.html">Home</a>
-      <a href="fitur.html">Fitur</a>
+      <a href="{{ route('pages.home') }}">Home</a>
+      <a href="{{ route('pages.feature') }}">Fitur</a>
       <a href="#" class="active">Tentang Kami</a>
     </nav>
-    <a href="registerairbearing.html" class="btn">Get Started</a>
+    <a href="{{ route('pages.register') }}" class="btn">Get Started</a>
   </header>
 
   <main class="about-container">

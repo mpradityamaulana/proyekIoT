@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-  <link rel="stylesheet" href="loginairbearing.css">
+  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>
   <div class="login-container">
@@ -21,7 +21,7 @@
     </form>
 
     <div class="create-account">
-      <a href="registerairbearing.html">Create new account</a>
+      <a href="{{ route('pages.register') }}">Create new account</a>
     </div>
 
     <div class="divider">
