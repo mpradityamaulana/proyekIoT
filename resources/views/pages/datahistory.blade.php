@@ -13,7 +13,7 @@
     <nav>
       <a href="{{ route('pages.dashboard') }}">🏠 Dashboard</a>
       <a href="#" class="active">⏱️ Riwayat Data</a>
-      <a href="#">📁 belum tau</a>
+      <a href="{{ route('pages.control') }}">📐 Kontrol</a>
       <a href="#">📈 belum tau</a>
     </nav>
   </div>

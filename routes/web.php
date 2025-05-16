@@ -42,6 +42,10 @@ Route::get('/pages/dashboard', function () {
     return view('pages.dashboard');
 })->middleware(['auth', 'verified'])->name('pages.dashboard');
 
+Route::get('/pages/control', function () {
+    return view('pages.control');
+})->middleware(['auth', 'verified'])->name('pages.control');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

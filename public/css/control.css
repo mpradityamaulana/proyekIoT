@@ -1,0 +1,198 @@
+/* RESET & FONT */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body {
+  display: flex;
+  height: 100vh;
+  background-color: #f4faff;
+  color: #333;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background: #d6e8f5;
+  padding: 20px;
+}
+
+.sidebar .logo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sidebar .status {
+  font-size: 14px;
+  margin-bottom: 30px;
+  color: green;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 12px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  background: #34568B;
+  color: white;
+}
+
+/* MAIN SECTION */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #f4faff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.user-dropdown {
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 36px;
+  right: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding: 0.5rem 0;
+  min-width: 160px;
+  z-index: 99;
+}
+
+.user-dropdown.active .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #222;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f4f6f9;
+}
+
+/* KONTROL PANEL */
+.kontrol-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at bottom right, #e7f4ff 20%, #f4faff 70%);
+  padding: 50px 20px;
+}
+
+.kontrol-panel {
+  background-color: #cce7ff;
+  padding: 2rem;
+  width: 700px;   
+  height: 500px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.kontrol-panel p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+}
+
+/* BUTTON AREA */
+.kontrol-buttons {
+  display: flex;
+  gap: 100px;
+}
+
+.circle-btn {
+  width: 90px;
+  height: 90px;
+  background-color: #2f6b96;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.circle-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+}
+
+/* ICON INSIDE CIRCLE */
+.icon {
+  width: 30px;
+  height: 30px;
+  stroke: white;
+  stroke-width: 2.5;
+}
+
+/* HIASAN BULAT DEKORATIF */
+.circle-decor {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 200px;
+  background: rgba(173, 216, 230, 0.3);
+  border-top-left-radius: 100%;
+}
+
+/* Pastikan kontainer memiliki positioning relatif */
+.kontrol-container {
+  position: relative; /* ← Tambahkan ini agar .circle-decor tetap di dalam batas kontainer */
+  /* ...sisa style tetap */
+}
+
+
+/* GLOW ANIMATION */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(47, 107, 150, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(47, 107, 150, 0.6);
+  }
+}

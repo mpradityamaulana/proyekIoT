@@ -14,7 +14,7 @@
     <nav>
       <a href="#" class="active">🏠 Dashboard</a>
       <a href="{{ route('pages.datahistory') }}">📊 Riwayat Data</a>
-      <a href="#">📁 belum tau</a>
+      <a href="{{ route('pages.control') }}">📐 Kontrol</a>
       <a href="#">📈 belum tau</a>
     </nav>
   </div>
