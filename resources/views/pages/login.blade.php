@@ -23,22 +23,6 @@
     <div class="create-account">
       <a href="{{ route('pages.register') }}">Create new account</a>
     </div>
-
-    <div class="divider">
-      <span>or login with</span>
-    </div>
-      
-      <div class="social-login">
-        <button class="social-btn fb">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
-        </button>
-        <button class="social-btn apple">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/apple.svg" alt="Apple">
-        </button>
-        <button class="social-btn google">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google">
-        </button>
-      </div>
       
   </div>
 

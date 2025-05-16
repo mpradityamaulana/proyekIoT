@@ -38,17 +38,13 @@ Route::get('/pages/feature', function(){
     return view('pages.feature');
 })->name('pages.feature');
 
-Route::get('/pages/dashboard', function(){
-    return view('pages.dashboard');
-})->name('pages.dashboard');
-
 Route::get('/pages/datahistory', function(){
     return view('pages.datahistory');
 })->name('pages.datahistory');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/pages/dashboard', function () {
+    return view('pages.dashboard');
+})->middleware(['auth', 'verified'])->name('pages.dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
