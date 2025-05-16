@@ -38,7 +38,7 @@
           </ul>
         </div>
 
-        <button class="start-btn" onclick="window.location.href='registerairbearing.html'">GET STARTED!</button>
+        <button class="start-btn" onclick="window.location.href='{{ route('pages.register') }}'">GET STARTED!</button>
 
       </div>
       <div class="image-area">
@@ -48,6 +48,6 @@
     <div class="circle-decor"></div>
   </main>
 
-  <script src="home.js"></script>
+  <script src="{{ asset('js/home.js') }}"></script>
 </body>
 </html>
