@@ -15,7 +15,7 @@
       <a href="{{ route('pages.feature') }}">Fitur</a>
       <a href="{{ route('pages.about') }}">Tentang Kami</a> 
     </nav>
-    <a href="{{ route('pages.register') }}" class="start-btn">GET STARTED</a>
+    <a href="{{ route('login') }}" class="start-btn">GET STARTED</a>
 
 
   </header>
@@ -38,7 +38,7 @@
           </ul>
         </div>
 
-        <button class="start-btn" onclick="window.location.href='{{ route('pages.register') }}'">GET STARTED!</button>
+        <button class="start-btn" onclick="window.location.href='{{ route('login') }}'">GET STARTED!</button>
 
       </div>
       <div class="image-area">

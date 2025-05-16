@@ -1,47 +1,49 @@
-<x-guest-layout>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+</head>
+<body>
+  <div class="login-container">
+    <h2 class="title">Login Here!</h2>
+    <p class="subtitle">
+      Silakan masuk untuk mengakses dashboard pemantauan<br>
+      dan pengelolaan data secara real-time.
+    </p>
+
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Username -->
-        <div>
-            <x-input-label for="username" :value="__('Username')" />
-            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+    @if (session('status'))
+        <div class="session-status">
+            {{ session('status') }}
         </div>
+    @endif
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <form class="login-form" method="POST" action="{{ route('login') }}">
+      @csrf
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+      <!-- Username -->
+      <input type="text" name="username" value="{{ old('username') }}" placeholder="Username" required autofocus autocomplete="username">
+      @error('username')
+          <div class="input-error">{{ $message }}</div>
+      @enderror
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+      <!-- Password -->
+      <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
+      @error('password')
+          <div class="input-error">{{ $message }}</div>
+      @enderror
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
+      <!-- Submit -->
+      <button type="submit" class="login-btn">Login</button>
     </form>
-</x-guest-layout>
+
+    <!-- Register Link -->
+    <div class="create-account">
+      <a href="{{ route('pages.register') }}">Create new account</a>
+    </div>
+  </div>
+</body>
+</html>

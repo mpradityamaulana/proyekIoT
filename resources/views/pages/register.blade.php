@@ -9,45 +9,42 @@
 <body>
   <div class="register-container">
     <h2 class="title">Register Now!</h2>
-    <p class="subtitle">Silakan daftar untuk membuat akun dan mulai mengakses sistem<br>pemantauan serta pengelolaan data secara real-time.</p>
+    <p class="subtitle">
+      Silakan daftar untuk membuat akun dan mulai mengakses sistem<br>
+      pemantauan serta pengelolaan data secara real-time.
+    </p>
 
-    <form class="register-form">
+    <form class="register-form" method="POST" action="{{ route('register') }}">
+      @csrf
+
+      <!-- Username -->
       <div class="form-group">
-        <input type="text" placeholder="nama lengkap" required>
-        <input type="email" placeholder="email" required>
+        <input type="text" name="username" value="{{ old('username') }}" placeholder="Username" required autocomplete="username">
+        @error('username')
+          <div class="input-error">{{ $message }}</div>
+        @enderror
       </div>
-      <input type="password" placeholder="password" required>
-      <input type="password" placeholder="confirm password" required>
 
-      <label class="terms">
-        <input type="checkbox" required>
-        <span>I agree to the terms and conditions.</span>
-      </label>
+      <!-- Password -->
+      <input type="password" name="password" placeholder="Password" required autocomplete="new-password">
+      @error('password')
+        <div class="input-error">{{ $message }}</div>
+      @enderror
 
+      <!-- Confirm Password -->
+      <input type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
+      @error('password_confirmation')
+        <div class="input-error">{{ $message }}</div>
+      @enderror
+
+      <!-- Submit -->
       <button type="submit" class="register-btn">Create Account</button>
     </form>
 
+    <!-- Login redirect -->
     <div class="login-redirect">
-      <span>Already have an account? <a href="{{ route('pages.login') }}">Log in here.</a></span>
-    </div>
-
-    <div class="divider">
-      <span>or register with</span>
-    </div>
-
-    <div class="social-login">
-      <button class="social-btn fb">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
-      </button>
-      <button class="social-btn apple">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/apple.svg" alt="Apple">
-      </button>
-      <button class="social-btn google">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google">
-      </button>
+      <span>Already have an account? <a href="{{ route('login') }}">Log in here.</a></span>
     </div>
   </div>
-
-  <script src="registerairbearing.js"></script>
 </body>
 </html>
