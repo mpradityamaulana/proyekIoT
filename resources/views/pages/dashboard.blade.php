@@ -23,7 +23,7 @@
     <!-- Topbar with Dropdown -->
     <div class="topbar">
   <div class="user-dropdown" onclick="toggleDropdown()">
-      <span>Hallo! 🌐 ▼</span>
+      <span>Hallo! {{ Auth::user()->username }} 🌐 ▼</span>
       <div id="dropdown-menu" class="dropdown-content">
           <a href="#">✏️ Edit Profil</a>
           <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">🔓 Logout</a>

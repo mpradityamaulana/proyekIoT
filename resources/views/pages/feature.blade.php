@@ -15,7 +15,7 @@
       <a href="#" class="active">Fitur</a>
       <a href="{{ route('pages.about') }}">Tentang Kami</a>
     </nav>
-    <a href="{{ route('pages.register') }}" class="btn">Get Started</a>
+    <a href="{{ route('login') }}" class="btn">Get Started</a>
   </header>
 
   <main class="main-content">

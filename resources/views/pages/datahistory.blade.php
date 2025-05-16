@@ -21,10 +21,14 @@
   <div class="main">
     <div class="topbar">
       <div class="user-dropdown" onclick="toggleDropdown()">
-        <span>Hallo! 🌐 ▼</span>
+        <b><span>Hallo! {{ Auth::user()->username}} 🌐 ▼</span></b>
         <div id="dropdown-menu" class="dropdown-content">
           <a href="#">✏️ Edit Profil</a>
-          <a href="#">🔓 Logout</a>
+          <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">🔓 Logout</a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
         </div>
       </div>
     </div>
