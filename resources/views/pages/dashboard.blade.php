@@ -15,7 +15,6 @@
       <a href="#" class="active">🏠 Dashboard</a>
       <a href="{{ route('pages.datahistory') }}">📊 Riwayat Data</a>
       <a href="{{ route('pages.control') }}">📐 Kontrol</a>
-      <a href="#">📈 belum tau</a>
     </nav>
   </div>
 
@@ -25,7 +24,7 @@
   <div class="user-dropdown" onclick="toggleDropdown()">
       <span>Hallo! {{ Auth::user()->username }} 🌐 ▼</span>
       <div id="dropdown-menu" class="dropdown-content">
-          <a href="#">✏️ Edit Profil</a>
+          <a href="{{ route('pages.editprofile') }}">✏️ Edit Profil</a>
           <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">🔓 Logout</a>
 
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
