@@ -19,8 +19,4 @@ class SensorData extends Model
         'beban',
         'kemiringan'
     ];
-
-    // Kalau ada kolom timestamps (created_at & updated_at), biarkan default
-    // Kalau tidak pakai timestamps, tambahkan ini:
-    // public $timestamps = false;
 }
