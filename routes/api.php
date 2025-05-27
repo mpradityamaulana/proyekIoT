@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\SensorData;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +24,14 @@ Route::get('/motor-control', function(Request $request){
     return response()->json(['status'=>'Motor bergerak ke $direction']);
 });
 
-Route::get('imu-data', function(){
-    return response()->json([
-        'accel_x' => rand(-10,10),
-        'accel_y' => rand(-10,10),
-        'accel_z' => rand(-10,10),
-        'gyro_x' => rand(-100,100),
-        'gyro_y' => rand(-100,100),
-        'gyro_z' => rand(-100,100),
+Route::post('/send-data', function(Request $request){
+    $data = SensorData::create([
+        'status_sistem' => $request->status_sistem,
+        'posisi_sumbu' => $request->posisi_sumbu,
+        'kecepatan' => $request->kecepatan,
+        'beban' => $request->beban,
+        'kemiringan' => $request->kemiringan,
     ]);
+
+    return response()->json(['message' => 'Data received', 'data' => $data], 201);
 });

@@ -38,9 +38,9 @@
     <h1>Dashboard</h1>
 
     <div class="top-cards">
-      <div class="card dark">Status Sistem<br><strong>Stabil</strong></div>
-      <div class="card lightblue">Posisi Sumbu<br><strong>X</strong></div>
-      <div class="card dark">Kecepatan<br><strong>500 RPM 🔁</strong></div>
+      <div class="card dark">Status Sistem<br><strong id="status-sistem">{{ $data->status_sistem ?? '-' }}</strong></div>
+      <div class="card lightblue">Posisi Sumbu<br><strong id="posisi-sumbu">{{ $data->posisi_sumbu ?? '-' }}</strong></div>
+      <div class="card dark">Kecepatan<br><strong id="kecepatan">{{ $data->kecepatan ?? '-' }}</strong></div>
     </div>
 
     <div class="content-layout">
@@ -48,12 +48,33 @@
         <canvas id="lineChart"></canvas>
       </div>
       <div class="side-data">
-        <div class="card right">Beban<br><strong>300 N</strong></div>
-        <div class="card right lightblue">Kemiringan<br><strong>12°</strong></div>
+        <div class="card right">Beban<br><strong id="beban">{{ $data->beban ?? '-' }}</strong></div>
+        <div class="card right lightblue">Kemiringan<br><strong id="kemiringan">{{ $data->kemiringan ?? '-' }}</strong></div>
       </div>
     </div>
   </div>
 
   <script src="{{ asset('js/dashboardNew.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function fetchData() {
+      $.get('/api/dashboard-data', function(data) {
+        if (data) {
+          $('#status-sistem').text(data.status_sistem || '-');
+          $('#posisi-sumbu').text(data.posisi_sumbu || '-');
+          $('#kecepatan').text(data.kecepatan || '-');
+          $('#beban').text(data.beban || '-');
+          $('#kemiringan').text(data.kemiringan || '-');
+        }
+      });
+    }
+
+    // Fetch data setiap 5 detik
+    setInterval(fetchData, 5000);
+
+    // Fetch pertama kali saat halaman load
+    fetchData();
+  </script>
+
 </body>
 </html>
