@@ -54,27 +54,7 @@
     </div>
   </div>
 
-  <script src="{{ asset('js/dashboardNew.js') }}"></script>
+  <script src="{{ asset('js/dashboard.js') }}"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    function fetchData() {
-      $.get('/api/dashboard-data', function(data) {
-        if (data) {
-          $('#status-sistem').text(data.status_sistem || '-');
-          $('#posisi-sumbu').text(data.posisi_sumbu || '-');
-          $('#kecepatan').text(data.kecepatan || '-');
-          $('#beban').text(data.beban || '-');
-          $('#kemiringan').text(data.kemiringan || '-');
-        }
-      });
-    }
-
-    // Fetch data setiap 5 detik
-    setInterval(fetchData, 5000);
-
-    // Fetch pertama kali saat halaman load
-    fetchData();
-  </script>
-
 </body>
 </html>

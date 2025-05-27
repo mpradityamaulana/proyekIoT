@@ -1,20 +1,75 @@
-function controlMotor(direction) {
-    fetch(`/api/motor-control?dir=${direction}`)
-        .then(response => response.json())
-        .then(data => alert("Motor: " + data.status))
-        .catch(error => console.error('Error:', error));
+// ===================
+// Chart.js Code
+// ===================
+const ctx = document.getElementById('lineChart').getContext('2d');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['0', '1', '2', '3', '4', '5', '6', '7'],
+    datasets: [{
+      label: 'Data Sensor',
+      data: [1000, 2000, 1500, 4000, 6000, 5000, 7000, 12000],
+      fill: false,
+      borderColor: 'limegreen',
+      tension: 0.4,
+      pointRadius: 4,
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { display: false }
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Waktu',
+          color: 'white'
+        },
+        ticks: { color: 'white' }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Nilai',
+          color: 'white'
+        },
+        ticks: { color: 'white' }
+      }
+    }
+  }
+});
+
+// ===================
+// Dropdown User Menu
+// ===================
+function toggleDropdown() {
+  const dropdown = document.getElementById("dropdown-menu");
+  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
-function fetchIMUData() {
-    fetch('/api/imu-data')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('imuData').innerHTML = `
-                <p>Accelerometer: X=${data.accel_x}, Y=${data.accel_y}, Z=${data.accel_z}</p>
-                <p>Gyroscope: X=${data.gyro_x}, Y=${data.gyro_y}, Z=${data.gyro_z}</p>
-            `;
-        })
-        .catch(error => console.error('Error:', error));
-}
+// Tutup dropdown jika klik di luar
+window.onclick = function(event) {
+  if (!event.target.closest('.user-dropdown')) {
+    document.getElementById("dropdown-menu").style.display = "none";
+  }
+};
 
-setInterval(fetchIMUData, 1000);
+function fetchData() {
+      $.get('/api/dashboard-data', function(data) {
+        if (data) {
+          $('#status-sistem').text(data.status_sistem || '-');
+          $('#posisi-sumbu').text(data.posisi_sumbu || '-');
+          $('#kecepatan').text(data.kecepatan || '-');
+          $('#beban').text(data.beban || '-');
+          $('#kemiringan').text(data.kemiringan || '-');
+        }
+      });
+    }
+
+    // Fetch data setiap 5 detik
+    setInterval(fetchData, 5000);
+
+    // Fetch pertama kali saat halaman load
+    fetchData();
