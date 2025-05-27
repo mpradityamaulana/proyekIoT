@@ -44,9 +44,6 @@
     </div>
 
     <div class="content-layout">
-      <div class="chart-container">
-        <canvas id="lineChart"></canvas>
-      </div>
       <div class="side-data">
         <div class="card right">Beban<br><strong id="beban">{{ $data->beban ?? '-' }}</strong></div>
         <div class="card right lightblue">Kemiringan<br><strong id="kemiringan">{{ $data->kemiringan ?? '-' }}</strong></div>
