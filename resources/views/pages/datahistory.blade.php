@@ -34,43 +34,55 @@
     <h1>Riwayat Data</h1>
 
     <div class="filters">
-      <div class="filter-group">
-        <button>Rentang Waktu</button>
-        <input type="date" />
-        <input type="date" />
-      </div>
-      <div class="filter-group">
-        <button>Tekanan</button>
-        <input type="text" placeholder="Tekanan" />
-      </div>
-      <div class="filter-group">
-        <button>Kecepatan</button>
-        <input type="text" placeholder="RPM" />
-      </div>
-      <button class="apply-btn">Terapkan</button>
+  <form method="GET" action="{{ route('pages.datahistory') }}">
+    <div class="filter-group">
+      <button type="button">Rentang Waktu</button>
+      <input type="date" name="start_date" value="{{ request('start_date') }}">
+      <input type="date" name="end_date" value="{{ request('end_date') }}">
     </div>
+    <div class="filter-group">
+      <button type="button">Tekanan</button>
+      <input type="text" name="beban" placeholder="Tekanan" value="{{ request('beban') }}">
+    </div>
+    <div class="filter-group">
+      <button type="button">Kecepatan</button>
+      <input type="text" name="kecepatan" placeholder="RPM" value="{{ request('kecepatan') }}">
+    </div>
+    <button class="apply-btn" type="submit">Terapkan</button>
+    <a href="{{ route('pages.datahistory') }}" class="reset-btn">Reset</a>
+  </form>
+</div>
 
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Waktu</th>
-            <th>Tekanan (Bar)</th>
-            <th>Kecepatan Putar (RPM)</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>2025 - 04 - 12 11:25:00</td><td>3,1</td><td>500</td><td>Normal</td></tr>
-          <tr><td>2025 - 04 - 12 11:26:00</td><td>3,2</td><td>485</td><td>Normal</td></tr>
-          <tr><td>2025 - 04 - 12 11:27:00</td><td>3,3</td><td>490</td><td>Normal</td></tr>
-          <tr><td>2025 - 04 - 12 11:28:00</td><td>3,1</td><td>505</td><td>Normal</td></tr>
-          <tr><td>2025 - 04 - 12 11:29:00</td><td>3,5</td><td>502</td><td>Normal</td></tr>
-          <tr><td>2025 - 04 - 12 11:30:00</td><td>3,2</td><td>490</td><td>Normal</td></tr>
-          <tr><td>2025 - 04 - 12 11:31:00</td><td>3,1</td><td>498</td><td>Normal</td></tr>
-        </tbody>
-      </table>
-    </div>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Waktu</th>
+        <th>Tekanan (Bar)</th>
+        <th>Kecepatan Putar (RPM)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      @forelse ($data as $row)
+        <tr>
+          <td>{{ \Carbon\Carbon::parse($row->created_at)->format('Y-m-d H:i:s') }}</td>
+          <td>{{ number_format((float)$row->beban, 1, ',', '.') }}</td>
+          <td>{{ $row->kecepatan }}</td>
+          <td>{{ $row->status_sistem }}</td>
+        </tr>
+      @empty
+        <tr>
+          <td colspan="4" style="text-align: center">Tidak ada data</td>
+        </tr>
+      @endforelse
+    </tbody>
+  </table>
+  <div class="pagination-wrapper">
+    {{ $data->links('vendor.pagination.custom') }}
+</div>
+
+</div>
   </div>
 
   <script src="{{ asset('js/riwayatdata.js') }}"></script>
