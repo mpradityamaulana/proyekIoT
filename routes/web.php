@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileUpdateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KontrolController;
+use App\Http\Controllers\DataHistoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,10 +38,6 @@ Route::get('/pages/feature', function(){
     return view('pages.feature');
 })->name('pages.feature');
 
-Route::get('/pages/datahistory', function(){
-    return view('pages.datahistory');
-})->middleware(['auth', 'verified'])->name('pages.datahistory');
-
 Route::get('/pages/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('pages.dashboard');
 
 Route::get('/pages/control', function () {
@@ -57,6 +55,9 @@ Route::get('/api/dashboard-data', function() {
     return response()->json($data);
 });
 
+Route::get('/pages/datahistory', [DataHistoryController::class, 'datahistory'])
+    ->middleware(['auth', 'verified'])
+    ->name('pages.datahistory');
 
 Route::get('/pages/teskontrol', [KontrolController::class, 'index']);
 Route::post('/api/control',[KontrolController::class, 'update']);
