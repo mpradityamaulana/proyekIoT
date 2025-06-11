@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kontrol | Monitoring Dashboard</title>
   <link rel="stylesheet" href="{{ asset('css/control.css') }}" />
+  @vite(['resources/js/app.js'])
+
 </head>
 <body>
   <div class="sidebar">
@@ -32,36 +34,20 @@
         </div>
       </div>
     </div>
-
-    <!-- Kontrol Content -->
-    <div class="kontrol-container">
-        <div class="kontrol-panel">
-          <p><strong>nanti ini buat tampilan 3D alatnya</strong><br>masih bingung tampilan alatnya gimana</p>
+        <!-- Kontainer utama untuk model 3D dan kontrolnya -->
+    <div class="">
+        <!-- Kontainer model 3D dengan latar belakang gelap dan sudut membulat -->
+        <div class="kontrol-container">
+            <h2 class="">Kontrol Model 3D</h2>
+            <!-- Elemen canvas untuk rendering 3D Three.js -->
+            <canvas id="sceneCanvas" class=""></canvas>
+            <!-- Kontrol untuk interaksi model -->
+            <div class="">
+                <button class="btn" data-action="rotate">Putar Model</button>
+                <button class="btn" data-action="zoom">Zoom In/Out</button>
+            </div>
         </div>
-
-      <!-- Hiasan lingkaran -->
-      <div class="circle-decor"></div>
-
-        <div class="kontrol-buttons">
-          <button class="circle-btn">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <button class="circle-btn">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path d="M9 6l6 6-6 6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-
-        </div>
-      </div>
-      
-
-  <script>
-    function toggleDropdown() {
-      document.querySelector('.user-dropdown').classList.toggle('active');
-    }
-  </script>
+    </div>
+    <script src="{{ asset('js/control.js') }}"></script>
 </body>
 </html>
