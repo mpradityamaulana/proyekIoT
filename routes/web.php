@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileUpdateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataHistoryController;
-
-
+use App\Http\Controllers\KontrolController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,6 +53,10 @@ Route::get('/api/dashboard-data', function() {
     $data = \App\Models\SensorData::latest()->first();
     return response()->json($data);
 });
+
+
+Route::get('/pages/teskontrol', [KontrolController::class, 'index']);
+Route::post('/api/control',[KontrolController::class, 'update']);
 
 Route::get('/pages/datahistory', [DataHistoryController::class, 'datahistory'])
     ->middleware(['auth', 'verified'])
