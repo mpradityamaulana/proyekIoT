@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="logo">System Monitoring</div>
     <div class="status">🟢 System Active</div>
     <nav>
@@ -17,23 +17,23 @@
       <a href="{{ route('pages.control') }}">📐 Kontrol</a>
     </nav>
   </div>
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
 
   <div class="main">
-    <!-- Topbar with Dropdown -->
     <div class="topbar">
-  <div class="user-dropdown" onclick="toggleDropdown()">
-      <span>Hallo! {{ Auth::user()->username }} 🌐 ▼</span>
-      <div id="dropdown-menu" class="dropdown-content">
+      <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+      <div class="user-dropdown" onclick="toggleDropdown()">
+        <span>Hallo! {{ Auth::user()->username }} 🌐 ▼</span>
+        <div id="dropdown-menu" class="dropdown-content">
           <a href="{{ route('pages.editprofile') }}">✏️ Edit Profil</a>
           <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">🔓 Logout</a>
-
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
           </form>
         </div>
       </div>
     </div>
-
 
     <h1>Dashboard</h1>
 

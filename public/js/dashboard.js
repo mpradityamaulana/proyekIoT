@@ -1,52 +1,25 @@
 // ===================
-// Chart.js Code
-// ===================
-const ctx = document.getElementById('lineChart').getContext('2d');
-
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['0', '1', '2', '3', '4', '5', '6', '7'],
-    datasets: [{
-      label: 'Data Sensor',
-      data: [1000, 2000, 1500, 4000, 6000, 5000, 7000, 12000],
-      fill: false,
-      borderColor: 'limegreen',
-      tension: 0.4,
-      pointRadius: 4,
-    }]
-  },
-  options: {
-    plugins: {
-      legend: { display: false }
-    },
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: 'Waktu',
-          color: 'white'
-        },
-        ticks: { color: 'white' }
-      },
-      y: {
-        title: {
-          display: true,
-          text: 'Nilai',
-          color: 'white'
-        },
-        ticks: { color: 'white' }
-      }
-    }
-  }
-});
-
-// ===================
 // Dropdown User Menu
 // ===================
 function toggleDropdown() {
   const dropdown = document.getElementById("dropdown-menu");
   dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  sidebar.classList.toggle("active");
+  overlay.style.display = sidebar.classList.contains("active") ? "block" : "none";
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  sidebar.classList.remove("active");
+  overlay.style.display = "none";
 }
 
 // Tutup dropdown jika klik di luar
@@ -55,6 +28,7 @@ window.onclick = function(event) {
     document.getElementById("dropdown-menu").style.display = "none";
   }
 };
+
 
 function fetchData() {
       $.get('/api/dashboard-data', function(data) {

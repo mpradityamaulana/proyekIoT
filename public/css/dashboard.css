@@ -149,3 +149,72 @@ h1 {
   background-color: #f0f0f0;
 }
 
+/* Tambahan di atas */
+.toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -240px;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    background: #d6e8f5;
+    z-index: 999;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main {
+    padding: 20px;
+    margin-left: 0;
+  }
+
+  .topbar {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toggle-btn {
+    display: inline-block;
+  }
+
+  .top-cards, .content-layout {
+    flex-direction: column;
+  }
+
+  .chart-container, .side-data, .card {
+    width: 100%;
+  }
+}
+
+/* Overlay untuk sidebar mobile */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: 998;
+}
+
+/* Tampilkan overlay ketika sidebar aktif */
+.sidebar.active + .overlay {
+  display: block;
+}

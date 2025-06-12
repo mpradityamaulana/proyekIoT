@@ -7,17 +7,26 @@
   <link rel="stylesheet" href="{{ asset('css/datahistory.css') }}" />
 </head>
 <body>
-  <div class="sidebar">
-    <div class="logo">System Monitoring</div>
-    <div class="status">🟢 System Active</div>
-    <nav>
-      <a href="{{ route('pages.dashboard') }}">🏠 Dashboard</a>
-      <a href="#" class="active">⏱️ Riwayat Data</a>
-      <a href="{{ route('pages.control') }}">📐 Kontrol</a>    </nav>
-  </div>
+  <div class="sidebar" id="sidebar">
+  <div class="logo">System Monitoring</div>
+  <div class="status">🟢 System Active</div>
+  <nav>
+    <a href="{{ route('pages.dashboard') }}">🏠 Dashboard</a>
+    <a href="#" class="active">⏱️ Riwayat Data</a>
+    <a href="{{ route('pages.control') }}">📐 Kontrol</a>
+  </nav>
+</div>
+
 
   <div class="main">
+    <!-- Tombol toggle untuk sidebar -->
+
+<!-- Overlay saat sidebar aktif -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
     <div class="topbar">
+      <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
       <div class="user-dropdown" onclick="toggleDropdown()">
         <b><span>Hallo! {{ Auth::user()->username}} 🌐 ▼</span></b>
         <div id="dropdown-menu" class="dropdown-content">
@@ -29,13 +38,15 @@
           </form>
         </div>
       </div>
+
     </div>
 
     <h1>Riwayat Data</h1>
 
     <div class="filters">
   <form method="GET" action="{{ route('pages.datahistory') }}">
-    <div class="filter-group">
+  <div class="filter-row">  
+  <div class="filter-group">
       <button type="button">Rentang Waktu</button>
       <input type="date" name="start_date" value="{{ request('start_date') }}">
       <input type="date" name="end_date" value="{{ request('end_date') }}">
@@ -48,8 +59,12 @@
       <button type="button">Kecepatan</button>
       <input type="text" name="kecepatan" placeholder="RPM" value="{{ request('kecepatan') }}">
     </div>
+  </div>
+  <div class="filter-actions">
     <button class="apply-btn" type="submit">Terapkan</button>
-    <a href="{{ route('pages.datahistory') }}" class="reset-btn">Reset</a>
+    <button type="button" class="reset-btn" onclick="window.location.href='{{ route('pages.datahistory') }}'">Reset</button>
+  </div>
+
   </form>
 </div>
 
