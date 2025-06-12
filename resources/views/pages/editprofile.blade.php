@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{{ asset('css/editprofile.css') }}" />
 </head>
 <body>
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="logo">System Monitoring</div>
     <div class="status">🟢 System Active</div>
     <nav>
@@ -16,10 +16,13 @@
       <a href="{{ route('pages.control') }}">📐 Kontrol</a>
     </nav>
   </div>
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
   <div class="main">
     <!-- Topbar with Dropdown -->
     <div class="topbar">
+                    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
       <div class="user-dropdown" onclick="toggleDropdown()">
         <span>Hallo! {{ Auth::user()->username }} 🌐 ▼</span>
         <div id="dropdown-menu" class="dropdown-content">
