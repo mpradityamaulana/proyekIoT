@@ -9,7 +9,7 @@
 
 </head>
 <body>
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="logo">System Monitoring</div>
     <div class="status">🟢 System Active</div>
     <nav>
@@ -19,10 +19,16 @@
     </nav>
   </div>
 
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
   <div class="main">
     <!-- Topbar -->
     <div class="topbar">
+
+              <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
       <div class="user-dropdown" onclick="toggleDropdown()">
+
         <b><span>Hallo! {{ Auth::user()->username}} 🌐 ▼</span></b>
         <div id="dropdown-menu" class="dropdown-content">
           <a href="{{ route('pages.editprofile') }}">✏️ Edit Profil</a>
@@ -40,7 +46,7 @@
         <div class="kontrol-container">
             <h2 class="">Kontrol Model 3D</h2>
             <!-- Elemen canvas untuk rendering 3D Three.js -->
-            <canvas id="sceneCanvas" class=""></canvas>
+            <canvas id="sceneCanvas" class="model-canvas"></canvas>
             <!-- Kontrol untuk interaksi model -->
             <div class="">
                 <button class="btn" data-action="rotate">Putar Model</button>

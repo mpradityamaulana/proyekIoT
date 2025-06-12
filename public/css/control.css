@@ -19,6 +19,13 @@ body {
   width: 220px;
   background: #d6e8f5;
   padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 999;
 }
 
 .sidebar .logo {
@@ -58,12 +65,11 @@ body {
 
 /* TOPBAR */
 .topbar {
+
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  background-color: #f4faff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 30px;
+  margin-right: 30px;
 }
 
 .user-dropdown {
@@ -184,6 +190,101 @@ body {
 .kontrol-container {
   position: relative; /* ← Tambahkan ini agar .circle-decor tetap di dalam batas kontainer */
   /* ...sisa style tetap */
+}
+
+.toggle-btn {  
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+/* Overlay untuk Sidebar */
+.overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.model-canvas {
+  width: 600px;
+  height: 400px;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.btn{
+    background: #2b3990;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 18px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  
+  body {
+    flex-direction: column;
+  }
+  
+  .toggle-btn {
+    display: inline-block;
+  }
+
+  
+  .topbar {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100%;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main {
+
+    padding: 20px;
+    margin-left: 0;
+  }
+
+  .kontrol-container {
+    padding: 20px;
+  }
+
+  .kontrol-buttons {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  canvas#sceneCanvas {
+    width: 100% !important;
+    height: auto !important;
+  }
 }
 
 
