@@ -10,8 +10,7 @@
 </head>
 <body>
   <div class="sidebar" id="sidebar">
-    <div class="logo">System Monitoring</div>
-    <div class="status">🟢 System Active</div>
+    <div class="logo">System Monitoring</div>    
     <nav>
       <a href="{{ route('pages.dashboard') }}">🏠 Dashboard</a>
       <a href="{{ route('pages.datahistory') }}">📊 Riwayat Data</a>
