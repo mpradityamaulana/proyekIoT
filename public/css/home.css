@@ -14,14 +14,22 @@ overflow-x: hidden;
 
 .navbar {
 display: flex;
-justify-content: space-between;
-align-items: center;
 padding: 1rem 2rem;
 background: rgb(217, 240, 255);
 color: #081c38;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
+  position: relative;
+    justify-content: space-between;
+      align-items: center;
+
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -123,7 +131,7 @@ padding-left: 1.2rem;
 }
 
 .start-btn {
-display: inline-block;
+display: none;
 background-color: transparent; /* Awalnya transparan */
 color: #081c38;                /* Teks biru dongker */
 padding: 12px 24px;
@@ -141,6 +149,9 @@ color: white;                  /* Teks jadi putih */
 transform: scale(1.05);
 }
 
+.start-btn.desktop {
+  display: inline-block;
+}
 
 
 .star {
@@ -183,7 +194,11 @@ height: auto;
 border-radius: 30px;
 }
 
-
+#nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
 
 @keyframes fadeIn {
 from { opacity: 0; transform: translateY(30px); }
@@ -194,4 +209,100 @@ to { opacity: 1; transform: translateY(0); }
 0%, 100% { transform: translateY(0); }
 50% { transform: translateY(-10px); }
 }
+
+/* HAMBURGER MENU STYLES */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+      position: relative;
+
+  }
+
   
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+  }
+
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  #nav-menu.show {
+    display: flex;
+  }
+
+  .navbar nav a {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .start-btn {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+        display: inline-block;
+
+  }
+
+    .start-btn.desktop {
+    display: none;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .circle-decor {
+    display: none;
+}
+    .image-area{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+  .text-area h2 {
+    font-size: 1.6rem;
+  }
+
+  .text-area h3 {
+    font-size: 1rem;
+  }
+
+  .desc {
+    font-size: 0.95rem;
+  }
+
+  .feature-box {
+    font-size: 0.9rem;
+  }
+
+
+  .circle-decor {
+    display: none;
+}
+    .image-area{
+        display: none;
+    }
+}

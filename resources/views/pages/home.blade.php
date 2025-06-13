@@ -9,15 +9,22 @@
 </head>
 <body>
   <header class="navbar">
-    <h1>Monitoring System</h1>
-    <nav>
+    <div class="nav-container">
+          <h1 class="logo">Monitoring System</h1>
+    
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    </div>
+
+    <nav id="nav-menu">
       <a href="#" class="active">Home</a>
       <a href="{{ route('pages.feature') }}">Fitur</a>
       <a href="{{ route('pages.about') }}">Tentang Kami</a> 
+          <a href="{{ route('login') }}" class="start-btn">GET STARTED</a>
+
     </nav>
-    <a href="{{ route('login') }}" class="start-btn">GET STARTED</a>
 
-
+    <a href="{{ route('login') }}" class="start-btn desktop">GET STARTED</a>
   </header>
 
   <main class="container">
@@ -39,8 +46,8 @@
         </div>
 
         <button class="start-btn" onclick="window.location.href='{{ route('login') }}'">GET STARTED!</button>
-
       </div>
+
       <div class="image-area">
         <img src="{{ Vite::asset('resources/img/imageHome1.jpg') }}" alt="Air Bearing" />
       </div>
