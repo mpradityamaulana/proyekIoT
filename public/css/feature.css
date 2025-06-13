@@ -11,6 +11,8 @@
     background: #eaf5ff;
     color: #111;
     overflow-x: hidden;
+        min-height: 100vh;
+
   }
   
   /* ===== NAVBAR ===== */
@@ -21,7 +23,18 @@
     padding: 20px 40px;
     background-color: rgb(217, 240, 255);
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+color: #081c38;
+padding: 1rem 2rem;
   }
+
+   
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
   
   .logo {
     font-weight: 700;
@@ -47,26 +60,6 @@
   .navbar nav a.active,
   .navbar nav a:hover {
     background-color: #081c38;
-    color: white;
-  }
-  
-  /* Tombol Get Started */
-  .btn {
-    background: rgb(217, 240, 255);
-    color: #0a1a36;
-    padding: 0.5rem 1.5rem;
-    border-radius: 30px;
-    font-weight: 600;
-    border: 2px solid #0a1a36;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;       /* 👈 Hapus underline */
-    display: inline-block;       /* 👈 Supaya a behave like button */
-  }
-  
-  
-  .btn:hover {
-    background: #0a1a36;
     color: white;
   }
   
@@ -175,20 +168,97 @@
       opacity: 1;
     }
   }
-  
+
+
+/* HAMBURGER MENU STYLES */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+  .start-btn {
+display: none;
+background-color: transparent; /* Awalnya transparan */
+color: #081c38;                /* Teks biru dongker */
+padding: 12px 24px;
+border-radius: 30px;
+font-weight: 700;
+text-decoration: none;
+transition: all 0.3s ease;
+border: 2px solid #081c38;     /* Outline biru dongker */
+}
+
+.start-btn:hover,
+.start-btn:active {
+background-color: #081c38;     /* Saat hover/klik jadi biru dongker */
+color: white;                  /* Teks jadi putih */
+transform: scale(1.05);
+}
+
+.start-btn.desktop {
+  display: inline-block;
+}
+
   /* ===== RESPONSIF ===== */
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 992px) {
+
+    .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+      position: relative;
+
+  }
     .features {
       grid-template-columns: 1fr;
     }
   
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .btn {
-      margin-top: 10px;
-    }
+    
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 15px;
+    right: 20px;
   }
+
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  #nav-menu.show {
+    display: flex;
+  }
+
+  .navbar nav a {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .start-btn {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+        display: inline-block;
+
+  }
+
+  .start-btn.desktop {
+    display: none;
+  }
+
+  .main-content {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+
+  .circle-decor {
+    display: none;
+}
+
+  }
+  
   

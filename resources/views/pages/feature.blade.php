@@ -9,14 +9,18 @@
 </head>
 <body>
   <header class="navbar">
-    <h1 class="logo">Monitoring System</h1>
-    <nav>
+    <div class="nav-container">
+          <h1 class="logo">Monitoring System</h1>
+          <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+    <nav id="nav-menu">
       <a href="{{ route('pages.home') }}">Home</a>
       <a href="#" class="active">Fitur</a>
       <a href="{{ route('pages.about') }}">Tentang Kami</a>
+          <a href="{{ route('login') }}" class="start-btn">Get Started</a>
+
     </nav>
-    <a href="{{ route('login') }}" class="btn">Get Started</a>
-  </header>
+            <a href="{{ route('login') }}" class="start-btn desktop">GET STARTED</a>  </header>
 
   <main class="main-content">
     <div class="star left"></div>
@@ -25,7 +29,7 @@
     <h2 class="title">Fitur Utama</h2>
 
     <div class="features">
-      <div class="feature-card animate">Rotasi Sumbu X, Y, atau Z
+      <div class="feature-card animate">Rotasi Sumbu X
         <p>Tinggal pilih sumbu yang ingin dikendalikan sesuai kebutuhan.</p>
       </div>
       <div class="feature-card active animate" style="animation-delay: 0.1s;">Monitoring Data Gerak
@@ -37,7 +41,7 @@
       <div class="feature-card animate" style="animation-delay: 0.3s;">Monitoring Kecepatan Rotasi (RPM)
         <p>Pantau kecepatan putaran motor secara real-time dalam satuan RPM</p>
       </div>
-      <div class="feature-card animate" style="animation-delay: 0.4s;">Status System Secara Real Time
+      <div class="feature-card animate" style="animation-delay: 0.4s;">Status Sistem Secara Real Time
         <p>Lihat status terkini sistem secara langsung</p>
       </div>
     </div>
